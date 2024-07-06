@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent } from "react";
-import { getCurrencyPairs } from "../services/binance.api";
-import { Form, Select, Button } from "./styledComponents";
+import { getCurrencyPairs } from "@services/binance.api";
+import { Card, Form, Select, Label, Button } from "./styledComponents";
 
 interface CurrencyPairFormProps {
   onSubmit: (pair: string) => void;
@@ -41,9 +41,9 @@ const CurrencyPairForm: React.FC<CurrencyPairFormProps> = ({ onSubmit }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <label>
-        Select Currency Pair:
+    <Card>
+      <Form onSubmit={handleSubmit}>
+        <Label>Select Currency Pair:</Label>
         <Select value={pair} onChange={(e) => setPair(e.target.value)}>
           {pairs.map((p) => (
             <option key={p} value={p}>
@@ -51,9 +51,9 @@ const CurrencyPairForm: React.FC<CurrencyPairFormProps> = ({ onSubmit }) => {
             </option>
           ))}
         </Select>
-      </label>
-      <Button type="submit">Get Market Data</Button>
-    </Form>
+        <Button type="submit">Get Market Data</Button>
+      </Form>
+    </Card>
   );
 };
 

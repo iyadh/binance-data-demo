@@ -1,4 +1,4 @@
-import { formatTimestamp } from "../utils/timeFormatter";
+import { formatTimestamp } from "@utils/timeFormatter";
 
 const BASE_URL = "https://api.binance.com/api/v3";
 

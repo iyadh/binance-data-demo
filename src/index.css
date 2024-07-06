@@ -24,6 +24,7 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+    background-color: #fafafa;
 }
 
 h1 {
@@ -31,23 +32,12 @@ h1 {
     line-height: 1.1;
 }
 
-.rdg {
-    &.fill-grid {
-        block-size: 100%;
-    }
+#root {
+    width: 100%;
+    padding: 1rem;
+}
 
-    .select-checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        > input {
-            margin: 0;
-        }
-    }
-
-    .rdg-checkbox {
-        &:checked {
-            outline: "none !important";
-        }
-    }
+.flex-col {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getTicker, getTrades } from "@services/binance.api";
+import { Card, DataDisplay, DataLabel, DataContent } from "./styledComponents";
 import TradesDataGrid from "./TradesDataGrid";
 
 interface MarketDataDisplayProps {
@@ -32,20 +33,36 @@ const MarketDataDisplay: React.FC<MarketDataDisplayProps> = ({ pair }) => {
   }, [pair]);
 
   return (
-    <div>
+    <>
       {tickerData && (
-        <div>
+        <Card>
           <h2>{pair} Ticker</h2>
-          <p>Price Change: {tickerData.priceChange}</p>
-          <p>Price Change Percent: {tickerData.priceChangePercent}</p>
-          <p>Last Price: {tickerData.lastPrice}</p>
-          <p>Volume: {tickerData.volume}</p>
-        </div>
+          <DataDisplay>
+            <span className="flex-col">
+              <DataLabel>Price Change: </DataLabel>
+              <DataContent>{tickerData.priceChange}</DataContent>
+            </span>
+            <span className="flex-col">
+              <DataLabel>Price Change Percent: </DataLabel>
+              <DataContent>{tickerData.priceChangePercent}</DataContent>
+            </span>
+            <span className="flex-col">
+              <DataLabel>Last Price: </DataLabel>
+              <DataContent>{tickerData.lastPrice}</DataContent>
+            </span>
+            <span className="flex-col">
+              <DataLabel>Volume: </DataLabel>
+              <DataContent>{tickerData.volume}</DataContent>
+            </span>
+          </DataDisplay>
+        </Card>
       )}
 
-      <h2>{pair} Recent Trades</h2>
-      <TradesDataGrid trades={tradesData} />
-    </div>
+      <Card>
+        <h2>{pair} Recent Trades</h2>
+        <TradesDataGrid trades={tradesData} />
+      </Card>
+    </>
   );
 };
 

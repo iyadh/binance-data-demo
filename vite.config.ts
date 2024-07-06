@@ -1,4 +1,5 @@
-import { fileURLToPath, URL } from "node:url";
+// @ts-ignore next-line
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tsconfigPaths from "vite-tsconfig-paths";
